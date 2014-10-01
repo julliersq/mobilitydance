@@ -20,23 +20,25 @@ get_header();
                                 <div id="content">
 
                                     <!-- Content -->
-
+                                    <?php
+                                    if (have_posts()) : while (have_posts()) : the_post(); 
+                                    ?>
                                     <article>
                                         <header class="major">
-                                            <h2><?php echo $currentPage->post_title; ?></h2>
-                                            <?php
-                                            //<p>Sidebars are not welcome here</p>
-                                            ?>
+                                            <h2><?php the_title(); ?></h2>
                                         </header>
                                         <div id="page-featured-image">
                                             <span class="image featured">
-                                                <?php echo get_the_post_thumbnail( $pageID, 'full', $attr ); ?>
+                                                <?php echo get_the_post_thumbnail( $pageID, 'page-feature', $attr ); ?>
                                             </span>
                                         </div>
                                         <div id="page-content">
-                                            <?php echo $currentPage->post_content; ?>                                        
+                                            <?php the_content(); ?>                                     
                                         </div>
                                     </article>
+                                    <?php endwhile; else: ?>
+                                    <p>&nbsp;</p>
+                                    <?php endif; ?>                                    
 
                                 </div>
                             </div>

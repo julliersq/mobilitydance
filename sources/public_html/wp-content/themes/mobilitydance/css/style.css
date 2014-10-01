@@ -384,6 +384,10 @@
 				margin: 0 auto;
 				border-radius: 8px;
 			}
+                        
+                        #page-featured-image img{
+                            max-height: 450px;
+                        }
 			
 			/* 
 				Adds a grain-y overlay to your images. Delete this entire rule if

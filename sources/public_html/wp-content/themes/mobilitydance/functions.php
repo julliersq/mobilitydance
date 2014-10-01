@@ -18,9 +18,9 @@ function initialize_function() {
 
 if ( function_exists( 'add_theme_support' ) ) { 
     add_theme_support( 'post-thumbnails' ); 
-    add_image_size( 'page-feature', 1200, 450, true );    
-    add_image_size( 'footer-post-feature', 180, 167, true );  
-    add_image_size( 'footer-spotlight-feature', 364, 167, true );  
+    add_image_size( 'page-feature', 1200, 450 );    
+    add_image_size( 'footer-post-feature', 180, 167 );  
+    add_image_size( 'footer-spotlight-feature', 364, 167 );  
 }
 
 
