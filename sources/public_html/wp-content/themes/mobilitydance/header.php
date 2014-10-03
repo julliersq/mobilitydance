@@ -19,7 +19,24 @@ $currentPage = get_queried_object();
         </noscript>
         <!--[if lte IE 8]><link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/ie/v8.css" /><![endif]-->
         <!--[if lte IE 9]><link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/ie/v9.css" /><![endif]-->
+        <script type="text/javascript">
+            $(function(){
+                $('img').removeAttr('width');
+                $('img').removeAttr('height');
+            });
+        </script>
         <?php
+        $mobile = mobile_device_detect();
+        if (is_array($mobile)) {
+        ?>
+        <style>
+            #page-featured-image img{
+                max-height: 450px;
+                width: 100%;
+            }            
+        </style>
+        <?php
+        }
         wp_head();
         ?>        
     </head>
@@ -35,9 +52,21 @@ $currentPage = get_queried_object();
                         <header id="header">
                             
                             <div class="inner">
-
+                                <?php                                
+                                if (is_array($mobile)) {
+                                ?>
                                 <!-- Logo -->
-                                <a href="index.html" id="logo"><img src="/wp-content/uploads/2014/08/mobility-logo.png"></a>
+                                <h1><a href="index.html" id="logo">Mobility Dance</a></h1>
+                                <?php
+                                }    
+                                else{
+                                ?>
+                                <!-- Logo -->
+                                <a href="index.html" id="logo"><img src="/wp-content/uploads/2014/08/mobility-logo.png"></a>                                
+                                <?php
+                                }
+                                ?>
+
 
                                 <!-- Nav -->
                                 <nav id="nav">
