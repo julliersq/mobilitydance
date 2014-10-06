@@ -23,11 +23,18 @@ $currentPage = get_queried_object();
             $(function(){
                 $('img').removeAttr('width');
                 $('img').removeAttr('height');
+                
+                if( window.innerWidth >= 1080 ){
+                    $('#page-featured-image img').css('width', 'auto');
+                }
+                
+                
             });
         </script>
         <?php
         $mobile = mobile_device_detect();
-        if (is_array($mobile)) {
+        //echo '$mobile is '.print_r($mobile, true);
+        if (is_array($mobile) && $mobile[1] != 'Apple iPad') {
         ?>
         <style>
             #page-featured-image img{
@@ -53,16 +60,16 @@ $currentPage = get_queried_object();
                             
                             <div class="inner">
                                 <?php                                
-                                if (is_array($mobile)) {
+                                if (is_array($mobile) && $mobile[1] != 'Apple iPad') {
                                 ?>
                                 <!-- Logo -->
-                                <h1><a href="index.html" id="logo">Mobility Dance</a></h1>
+                                <h1><a href="/" id="logo">Mobility Dance</a></h1>
                                 <?php
                                 }    
                                 else{
                                 ?>
                                 <!-- Logo -->
-                                <a href="index.html" id="logo"><img src="/wp-content/uploads/2014/08/mobility-logo.png"></a>                                
+                                <a href="/" id="logo"><img src="/wp-content/uploads/2014/08/mobility-logo.png"></a>                                
                                 <?php
                                 }
                                 ?>
